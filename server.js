@@ -14,7 +14,9 @@ app.post('/send-email', async (req, res) => {
     const { recipientEmail } = req.body;
 
     const transporter = nodemailer.createTransport({
-        service: 'gmail',
+        host: 'smtp.gmail.com', // Explicitly tell it to use Gmail
+        port: 465,              // Explicitly use the Secure SSL port
+        secure: true,           // This forces SSL
         auth: {
             user: process.env.EMAIL_USER,
             pass: process.env.EMAIL_PASS
@@ -24,7 +26,7 @@ app.post('/send-email', async (req, res) => {
     const mailOptions = {
         from: process.env.EMAIL_USER,
         to: recipientEmail,
-        subject: "Hello from my Full Stack App",
+        subject: "Hello from my Full Stack App typeshii",
         text: "This is a pre-written message sent from a Node.js server!"
     };
 
