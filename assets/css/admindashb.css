@@ -1,0 +1,2150 @@
+/* --- Smooth Theme Transition --- */
+/* This rule applies to all elements and their pseudo-elements */
+*,
+*::before,
+*::after {
+  transition: background-color 0.3s ease, color 0.3s ease,
+    border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.queue-scroll {
+  max-height: 200px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #a0aec0 transparent;
+}
+.queue-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+.queue-scroll::-webkit-scrollbar-thumb {
+  background-color: #a0aec0;
+  border-radius: 10px;
+}
+.icon-box {
+  width: 16px;
+  height: 16px;
+  background-color: #555;
+  display: inline-block;
+  vertical-align: middle;
+  border-radius: 2px;
+  margin-right: 8px;
+}
+/* Shadow for small cards on top */
+.top-box {
+  box-shadow: 0 4px 8px rgb(0 0 0 / 0.1);
+  border-radius: 0.5rem;
+  width: 90px;
+  height: 90px;
+  text-align: center;
+  padding: 0.75rem;
+  font-weight: 700;
+  user-select: none;
+}
+.top-box-number {
+  font-size: 1.75rem;
+  font-weight: 900;
+}
+/* Scrollbar hidden on container */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.request-details-preview {
+  background: #f8f9fa;
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  margin-bottom: 15px;
+}
+
+..request-details .info-row {
+  display: grid;
+  grid-template-columns: 140px auto; /* 140px for label, rest for value */
+  gap: 8px;
+  margin-bottom: 10px;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+.request-details .info-label {
+  font-weight: 600;
+  color: #555;
+  grid-column: 1 / 2;
+}
+.request-details .info-value {
+  color: #222;
+  word-break: break-word;
+  grid-column: 2 / 3;
+}
+
+.btn-sm {
+  padding: 6px 12px;
+  font-size: 12px;
+  margin: 2px;
+}
+
+.button-group {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, sans-serif;
+  background: #f5f5f5;
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.sidebar {
+  width: 280px;
+  background: #103902;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 40px;
+  font-weight: 600;
+  font-size: 20px;
+}
+
+/* .avatar {
+        width: 50px;
+        height: 50px;
+        background: white;
+        border-radius: 50%;
+      } */
+
+.sidebar-title {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* .menu-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 16px;
+        margin-bottom: 8px;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background 0.2s;
+        position: relative;
+      }
+
+      .menu-item:hover {
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      .menu-item.active {
+        background: #d4e157;
+        color: #ffffff;
+      } */
+/* --- Default (Inactive) Menu Item --- */
+/* --- Default (Inactive) Menu Item --- */
+/* Base Style: Everything you need for a good-looking, accessible menu item */
+.menu-item {
+  color: #f0f0f0;
+  background: transparent;
+  text-decoration: none;
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  font-weight: 500;
+  border-radius: 10px;
+  /* Slightly rounded corners */
+
+  /* --- 🚀 ENHANCED SMOOTH TRANSITION 🚀 --- */
+  /* Apply the transition to all animatable properties (like color, background, transform, and box-shadow) */
+  transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out,
+    transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  /* Add a slight initial lift/depth to the inactive state */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* --- Hover Effect: Smooth, Elevated, and Eye-catching --- */
+.menu-item:hover {
+  background: rgba(255, 255, 255, 0.12);
+  /* Slightly brighter background */
+  color: #ffffff;
+
+  /* 🌟 COOL ANIMATION: Lift the item slightly and add a stronger shadow (3D effect) */
+  transform: translateY(-3px);
+  /* Moves the item up 3 pixels */
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+  /* Stronger shadow for the "lift" */
+}
+
+/* --- Active Menu Item (Selected) --- */
+.menu-item.active {
+  background: #dfdede;
+  color: #1a1a1a;
+  font-weight: 700;
+
+  /* Set it back down and give it a prominent pill shape and strong shadow */
+  transform: none;
+  /* Reset the transform from hover */
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.4);
+  border-radius: 10px;
+  /* Distinct oval/pill shape when active */
+}
+
+.menu-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.request-card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  margin-top: auto;
+  text-align: center;
+}
+
+.request-number {
+  font-size: 36px;
+  font-weight: bold;
+  color: #2e7d32;
+}
+
+.request-label {
+  color: #666;
+  margin-top: 5px;
+}
+
+.user-card {
+  background: white;
+  border-radius: 12px;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  background: #e0e0e0;
+  border-radius: 50%;
+}
+
+.user-info h4 {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+}
+
+.user-info p {
+  font-size: 12px;
+  color: #999;
+}
+
+.main-content {
+  flex: 1;
+  background: white;
+  overflow-y: auto;
+  padding: 40px;
+}
+
+.page {
+  display: none;
+}
+
+.page.active {
+  display: block;
+}
+
+.header {
+  margin-bottom: 30px;
+}
+
+.header h1 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.stat-card {
+  background: white;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.stat-card.priority {
+  background: #ffcdd2;
+  border-color: #ffcdd2;
+}
+
+.stat-number {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.stat-number.blue {
+  color: #1976d2;
+}
+
+.stat-number.orange {
+  color: #f57c00;
+}
+
+.stat-number.green {
+  color: #388e3c;
+}
+
+.stat-number.purple {
+  color: #7b1fa2;
+}
+
+.stat-number.red {
+  color: #d32f2f;
+}
+
+.stat-label {
+  font-size: 14px;
+  color: #666;
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.card {
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.card-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+}
+
+.badge {
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.badge.priority {
+  background: #ffebee;
+  color: #c62828;
+}
+
+.badge.processing {
+  background: #fff3e0;
+  color: #e65100;
+}
+
+.badge.pwa {
+  background: #2e7d32;
+  color: white;
+}
+
+.badge.pending {
+  background: #ffcdd2;
+  color: #c62828;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.info-label {
+  color: #666;
+}
+
+.info-value {
+  color: #333;
+  font-weight: 500;
+}
+
+.priority-badge {
+  background: #e1bee7;
+  color: #6a1b9a;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  display: inline-block;
+}
+
+.alert-box {
+  background: #e8eaf6;
+  border-left: 4px solid #5c6bc0;
+  padding: 15px;
+  border-radius: 8px;
+  margin: 15px 0;
+  font-size: 13px;
+  color: #3f51b5;
+}
+
+.button-group {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.btn {
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.btn-primary {
+  background: #5c6bc0;
+  color: white;
+}
+
+.btn-success {
+  background: #7b1fa2;
+  color: white;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.quick-actions {
+  margin-top: 20px;
+}
+
+.quick-actions h3 {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #333;
+}
+
+.action-btn {
+  background: #f5f5f5;
+  border: 1px solid #e0e0e0;
+  padding: 10px 16px;
+  border-radius: 8px;
+  margin: 5px 5px 5px 0;
+  display: inline-block;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.action-btn:hover {
+  background: #e0e0e0;
+}
+
+.priority-card {
+  background: #ffcdd2;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.priority-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.priority-id {
+  font-weight: 600;
+  color: #333;
+}
+
+.queue-card {
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 15px;
+  margin-bottom: 10px;
+}
+
+.queue-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.queue-id {
+  font-weight: 600;
+  color: #333;
+}
+
+.queue-status {
+  font-size: 12px;
+  color: #666;
+}
+
+.next-serve {
+  background: #f5f5f5;
+  padding: 12px;
+  border-radius: 8px;
+  margin-top: 15px;
+  font-size: 13px;
+  color: #666;
+  text-align: center;
+}
+
+/* Service Request Styles */
+.document-section {
+  margin-bottom: 30px;
+}
+
+.section-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.document-item {
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 15px;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.document-item:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.document-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 8px;
+}
+
+.document-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.document-description {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.document-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #999;
+}
+
+.queue-number {
+  color: #666;
+  font-weight: 500;
+}
+
+/* Analytics Dashboard Styles */
+.analytics-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.summary-card {
+  background: white;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 30px;
+  text-align: center;
+}
+
+.summary-number {
+  font-size: 48px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.summary-label {
+  font-size: 14px;
+  color: #666;
+}
+
+.info-card {
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.info-card h3 {
+  font-size: 14px;
+  font-weight: 600;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.request-list {
+  list-style: none;
+}
+
+.request-list li {
+  padding: 10px 0;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 13px;
+  color: #666;
+  display: flex;
+  justify-content: space-between;
+}
+
+.request-list li:last-child {
+  border-bottom: none;
+}
+
+.history-table {
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.history-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.history-item {
+  padding: 15px;
+  border-bottom: 1px solid #f0f0f0;
+  cursor: pointer;
+  transition: background 0.2s;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.history-item:hover {
+  background: #f5f5f5;
+}
+
+.history-item:last-child {
+  border-bottom: none;
+}
+
+.history-day {
+  font-weight: 500;
+  color: #333;
+  font-size: 14px;
+}
+
+.history-date {
+  font-size: 13px;
+  color: #999;
+}
+
+/* Detail Report Styles */
+.report-header {
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.report-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.report-date {
+  font-size: 13px;
+  color: #999;
+  margin-bottom: 20px;
+}
+
+.service-summary {
+  margin-bottom: 20px;
+}
+
+.summary-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.service-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 14px;
+}
+
+.service-item:last-child {
+  border-bottom: none;
+}
+
+.service-name {
+  color: #666;
+}
+
+.service-count {
+  font-weight: 600;
+  color: #333;
+}
+
+.total-requests {
+  text-align: center;
+  padding: 20px 0;
+  border-top: 2px solid #e0e0e0;
+  margin-top: 10px;
+}
+
+.total-label {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.total-number {
+  font-size: 32px;
+  color: #2e7d32;
+  font-weight: bold;
+}
+
+.data-table {
+  background: #f5f5f5;
+  border-radius: 12px;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.table-section {
+  background: white;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 15px;
+}
+
+.table-section:last-child {
+  margin-bottom: 0;
+}
+
+.table-header-title {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.table-row {
+  display: grid;
+  grid-template-columns: 2fr 2fr 1fr 1fr;
+  gap: 15px;
+  padding: 10px 0;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 13px;
+}
+
+.table-row.header-row {
+  border-bottom: 2px solid #e0e0e0;
+  padding-bottom: 10px;
+}
+
+.table-row:last-child {
+  border-bottom: none;
+}
+
+.table-cell {
+  color: #666;
+}
+
+.table-cell.header {
+  font-weight: 600;
+  color: #999;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+/* Settings Styles */
+.settings-section {
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 25px;
+  margin-bottom: 20px;
+}
+
+.settings-section-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.settings-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px;
+  margin-bottom: 10px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.settings-item:hover {
+  background: #f5f5f5;
+  transform: translateX(5px);
+}
+
+.settings-item-icon {
+  font-size: 20px;
+  width: 30px;
+  text-align: center;
+}
+
+.settings-value {
+  margin-left: auto;
+  color: #666;
+  font-size: 14px;
+}
+
+.settings-profile {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 20px;
+  margin: 20px 0;
+  background: #f5f5f5;
+  border-radius: 8px;
+}
+
+.profile-avatar-large {
+  width: 60px;
+  height: 60px;
+  background: #e0e0e0;
+  border-radius: 50%;
+}
+
+.profile-info h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.profile-info p {
+  font-size: 14px;
+  color: #666;
+}
+
+.btn-logout {
+  background: #dc3545;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  width: 100%;
+}
+
+.btn-logout:hover {
+  background: #c82333;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(220, 53, 69, 0.3);
+}
+
+/* Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1055 !important;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  animation: fadeIn 0.3s;
+}
+
+.modal-backdrop {
+  z-index: 1050 !important;
+}
+/* Ensure clicks register */
+.modal-dialog {
+  pointer-events: auto !important;
+}
+
+.modal.active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.modal-content {
+  background: white;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  animation: slideUp 0.3s;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.modal-header h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+}
+
+.modal-close {
+  font-size: 28px;
+  font-weight: 300;
+  color: #999;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.modal-close:hover {
+  color: #333;
+}
+
+.modal-body {
+  padding: 20px;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 20px;
+  border-top: 1px solid #e0e0e0;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.form-input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: border-color 0.2s;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #5c6bc0;
+}
+
+.form-input:disabled {
+  background: #f5f5f5;
+  color: #999;
+}
+
+.btn-secondary {
+  background: #6c757d;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.2s;
+}
+
+.btn-secondary:hover {
+  background: #5a6268;
+}
+
+/* Toggle Switch */
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 24px;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 24px;
+}
+
+.toggle-slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+.toggle-switch input:checked + .toggle-slider {
+  background-color: #2e7d32;
+}
+
+.toggle-switch input:checked + .toggle-slider:before {
+  transform: translateX(26px);
+}
+/* ============================================================= */
+/*  MANUAL QUEUE ENTRY — CLEAN UI (MATCHES CURRENT REQUEST)     */
+/* ============================================================= */
+
+/* Card */
+#manualEntryCollapse + .card,
+.card.mb-3.border-0.shadow-sm {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* Header */
+.card-header.bg-white {
+  border-bottom: 1px solid #e2e8f0 !important;
+  padding: 14px 20px;
+}
+
+.card-header h6 {
+  font-size: 1rem;
+  color: #2d3748;
+}
+
+/* Labels */
+.text-secondary.fw-medium {
+  font-size: 0.875rem;
+  color: #718096 !important;
+}
+
+/* Inputs */
+.form-control-sm,
+.form-select-sm {
+  border: 1.5px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  padding: 8px 12px;
+  background-color: #ffffff;
+  transition: all 0.2s;
+}
+
+.form-control-sm:focus,
+.form-select-sm:focus {
+  border-color: #4299e1;
+  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.15);
+  background-color: #ffffff;
+}
+
+/* Blue Button (Primary) */
+.btn-primary.btn-sm {
+  background: linear-gradient(135deg, #3182ce, #4299e1);
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(49, 130, 206, 0.2);
+  transition: all 0.2s;
+}
+
+.btn-primary.btn-sm:active {
+  transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .card-body.p-4 {
+    padding: 16px !important;
+  }
+  .col-md-6,
+  .col-md-4 {
+    margin-bottom: 0;
+  }
+}
+/* --- Styles for Recent Requests List --- */
+.request-list {
+  list-style-type: none;
+  padding-left: 0;
+  margin-bottom: 0;
+  max-height: 300px; /* Prevents list from getting too long */
+  overflow-y: auto; /* Adds scroll if needed */
+}
+.request-list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 5px; /* Added 5px horizontal padding */
+  border-bottom: 1px solid #eee;
+  font-size: 14px;
+}
+.request-list-item:last-child {
+  border-bottom: none;
+}
+.request-list-item .client-name {
+  font-weight: 600;
+  color: #333;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 10px;
+}
+.request-list-item .service-name {
+  font-size: 13px;
+  color: #777;
+  text-align: right;
+  white-space: nowrap;
+  flex-shrink: 0; /* Prevents service name from shrinking */
+}
+.request-list-item.empty {
+  justify-content: center;
+  color: #999;
+  padding: 20px 0;
+}
+@media (max-width: 576px) {
+  .search-wrapper {
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+  .search-wrapper input {
+    flex: 1;
+  }
+}
+/* ────────────────────────────────────────
+   DARK THEME – 100% consistent (FIXED)
+   ──────────────────────────────────────── */
+
+/* --- Base Body --- */
+body.dark-theme {
+  background: #121212;
+  color: #e0e0e0;
+}
+
+/* --- Main Component Backgrounds --- */
+/* This rule turns all cards, headers, and sections dark. */
+body.dark-theme .main-content,
+body.dark-theme .page,
+body.dark-theme .header,
+body.dark-theme .card,
+body.dark-theme .card-body,
+body.dark-theme .card-header,
+body.dark-theme .stat-card,
+body.dark-theme .settings-section,
+body.dark-theme .settings-item,
+body.dark-theme .list-group-item,
+body.dark-theme .table,
+body.dark-theme .table *,
+body.dark-theme .document-item,
+body.dark-theme .summary-card,
+body.dark-theme .info-card,
+body.dark-theme .history-table,
+body.dark-theme .report-header,
+body.dark-theme .data-table,
+body.dark-theme .table-section,
+body.dark-theme .staff-info-card,
+body.dark-theme .settings-profile,
+body.dark-theme .request-list-item {
+  background: #2d2d2d !important;
+  color: #e0e0e0 !important;
+  border-color: #444 !important;
+}
+
+/* --- Specific Text Color Overrides --- */
+/* This rule fixes text that was blending in (e.g., black text on dark background) */
+body.dark-theme .stat-label,
+body.dark-theme .header h1,
+body.dark-theme .card-title,
+body.dark-theme .info-label,
+body.dark-theme .info-value,
+body.dark-theme .document-title,
+body.dark-theme .document-description,
+body.dark-theme .queue-number,
+body.dark-theme .summary-label,
+body.dark-theme .info-card h3,
+body.dark-theme .request-list-item .client-name,
+body.dark-theme .history-title,
+body.dark-theme .history-day,
+body.dark-theme .report-title,
+body.dark-theme .summary-title,
+body.dark-theme .service-name,
+body.dark-theme .service-count,
+body.dark-theme .total-label,
+body.dark-theme .table-header-title,
+body.dark-theme .table-cell,
+body.dark-theme .profile-info h3,
+body.dark-theme .profile-info p,
+body.dark-theme .staff-details p,
+body.dark-theme .staff-details p strong,
+body.dark-theme h1, /* Generic h1 */
+body.dark-theme h2, /* Generic h2 */
+body.dark-theme h3, /* Generic h3 */
+body.dark-theme h4, /* Generic h4 */
+body.dark-theme p /* Generic p */ {
+  color: #e0e0e0 !important;
+}
+
+/* --- Muted/Secondary Text Overrides --- */
+/* This rule ensures secondary text is still visible but muted. */
+body.dark-theme .text-muted,
+body.dark-theme .text-secondary,
+body.dark-theme small,
+body.dark-theme .form-text,
+body.dark-theme .form-label,
+body.dark-theme .form-control::placeholder,
+body.dark-theme .dropdown-item,
+body.dark-theme .stat-label, /* Re-adding for muted look */
+body.dark-theme .request-list-item .service-name,
+body.dark-theme .report-date,
+body.dark-theme .table-cell.header,
+body.dark-theme .history-date {
+  color: #aaa !important;
+}
+
+/* --- Inputs --- */
+body.dark-theme .form-control,
+body.dark-theme .form-select,
+body.dark-theme .form-check-input {
+  background: #3a3a3a !important;
+  color: #e0e0e0 !important;
+  border-color: #555 !important;
+}
+body.dark-theme .form-control:focus,
+body.dark-theme .form-select:focus {
+  border-color: #4299e1 !important;
+  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.3) !important;
+}
+/* Fix for search bar */
+body.dark-theme .search-wrapper {
+  background: #3a3a3a !important;
+}
+body.dark-theme .search-wrapper input.form-control {
+  background: transparent !important;
+}
+
+/* --- Buttons --- */
+body.dark-theme .btn-primary {
+  background: linear-gradient(135deg, #3182ce, #4299e1) !important;
+}
+body.dark-theme .btn-success {
+  background: #28a745 !important;
+}
+body.dark-theme .btn-danger {
+  background: #dc3545 !important;
+}
+body.dark-theme .btn-info {
+  background: #17a2b8 !important;
+}
+/* Fix for outline/secondary buttons */
+body.dark-theme .btn-outline-secondary,
+body.dark-theme .btn-secondary {
+  background: #4a4a4a !important;
+  color: #e0e0e0 !important;
+  border-color: #555 !important;
+}
+
+/* --- Badges --- */
+body.dark-theme .badge.waiting {
+  background: #2c5282 !important;
+  color: #bee3f8 !important;
+}
+body.dark-theme .badge.processing {
+  background: #dd6b20 !important;
+  color: #fdebd0 !important;
+}
+body.dark-theme .badge.priority {
+  background: #9c27b0 !important;
+  color: #f3e5f5 !important;
+}
+/* Fix for approved/declined badges */
+body.dark-theme .badge.approved-badge {
+  background: #28a745 !important;
+  color: #fff !important;
+}
+body.dark-theme .badge.declined-badge {
+  background: #dc3545 !important;
+  color: #fff !important;
+}
+
+/* --- Scrollbars --- */
+body.dark-theme ::-webkit-scrollbar-thumb {
+  background: #555 !important;
+}
+body.dark-theme ::-webkit-scrollbar-track {
+  background: #1e1e1e !important;
+}
+
+/* --- Sidebar (Dark Mode) --- */
+body.dark-theme .sidebar {
+  background: #1e1e1e !important; /* Dark, image-matched background */
+}
+body.dark-theme .sidebar .menu-item {
+  color: #9ca3af !important; /* Muted gray text for inactive items */
+  font-weight: 500;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s; /* Smooth transition */
+}
+body.dark-theme .sidebar .menu-item:hover {
+  background: #373737 !important; /* Slightly lighter bg on hover */
+  color: #ffffff !important; /* Bright white text on hover */
+}
+body.dark-theme .sidebar .menu-item.active {
+  background: #22c55e !important; /* Bright Green (from image) */
+  color: #ffffff !important; /* White text on active */
+  font-weight: 700;
+  box-shadow: 0 4px 12px rgba(34, 197, 94, 0.25); /* Subtle green glow */
+}
+
+/* Sidebar cards (Request Today & User) */
+body.dark-theme .sidebar .request-card,
+body.dark-theme .sidebar .user-card {
+  background: #2d2d2d !important; /* Match content dark color */
+  color: #e0e0e0 !important;
+}
+body.dark-theme .sidebar .request-number {
+  color: #22c55e !important; /* Use new active green color */
+}
+body.dark-theme .sidebar .request-label {
+  color: #aaa !important; /* Muted text */
+}
+body.dark-theme .sidebar .user-info h4 {
+  color: #e0e0e0 !important;
+}
+body.dark-theme .sidebar .user-info p {
+  color: #aaa !important; /* Muted text */
+}
+
+/* --- EXCEPTION: Manual Queue Entry Card --- */
+/* This rule keeps the manual entry form white, as it's a special component. */
+body.dark-theme #manualEntryCollapse + .card,
+body.dark-theme #manualEntryCollapse + .card .card-header,
+body.dark-theme #manualEntryCollapse + .card .card-body {
+  background: #ffffff !important;
+  color: #2d3748 !important;
+  border-color: #e2e8f0 !important;
+}
+body.dark-theme #manualEntryCollapse + .card .form-label,
+body.dark-theme #manualEntryCollapse + .card h6 {
+  color: #4a5568 !important;
+}
+body.dark-theme #manualEntryCollapse + .card .form-control,
+body.dark-theme #manualEntryCollapse + .card .form-select {
+  background: #ffffff !important;
+  color: #2d3748 !important;
+  border-color: #e2e8f0 !important;
+}
+
+/* --- iOS-Style Notification Badge CSS --- */
+/* This section is for the red dot on the sidebar */
+.sidebar .menu-item {
+  /* This is still needed for positioning */
+  position: relative;
+}
+
+.notification-dot {
+  /* Hide by default */
+  display: none;
+
+  /* Position */
+  position: absolute;
+  top: 12px; /* Adjust as needed */
+  right: 18px; /* Adjust as needed */
+
+  /* The "iOS" look */
+  background-color: #ff3b30; /* Apple's notification red */
+  color: white;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+
+  /* Sizing and Shape */
+  height: 20px;
+  min-width: 20px; /* Ensures it's a circle for single digits */
+  padding: 0 6px; /* Horizontal padding for multi-digit numbers */
+  border-radius: 10px; /* Half of height */
+
+  /* Centering the text */
+  line-height: 20px; /* Same as height */
+  text-align: center;
+
+  box-sizing: border-box;
+}
+
+/* When the menu item has this class, show the dot */
+.menu-item.has-notification .notification-dot {
+  display: block;
+}
+/* --- Fix for Reports Summary Cards --- */
+body.dark-theme .summary-number {
+  color: #e0e0e0 !important;
+}
+
+body.dark-theme .summary-label {
+  color: #aaa !important;
+}
+/* --- Fix for Queue Management Page --- */
+
+/* 1. Fixes the pink background on the Priority Queue card */
+body.dark-theme .priority-card {
+  background: #2d2d2d !important;
+}
+
+/* 2. Fixes the white request "cards" inside Priority and Regular queues */
+body.dark-theme .queue-card {
+  background: #3a3a3a !important;
+  border-color: #555 !important;
+}
+
+/* 3. Fixes the white request "items" inside Currently Processing */
+body.dark-theme .queue-item {
+  background: #3a3a3a !important;
+  border-color: #555 !important;
+}
+
+/* 4. Fixes the white "Next to serve" bar */
+body.dark-theme .next-serve {
+  background: #2d2d2d !important;
+  border-color: #444 !important;
+  color: #e0e0e0 !important;
+}
+body.dark-theme .next-serve strong {
+  color: #fff !important;
+}
+
+/* 5. Fixes the text color INSIDE all the queue items */
+body.dark-theme .queue-card .queue-id,
+body.dark-theme .queue-card div[style*="color: #666"],
+body.dark-theme .queue-item div[style*="font-size: 14px"],
+body.dark-theme .queue-item strong {
+  color: #e0e0e0 !important;
+}
+
+body.dark-theme .queue-card .queue-status,
+body.dark-theme .queue-card .queue-status small,
+body.dark-theme .queue-card div[style*="color: #999"],
+body.dark-theme .queue-item div[style*="color: #666"] {
+  color: #aaa !important;
+}
+/* --- Fix for Priority Queue (Card + Badge) --- */
+
+/* 1. Makes the pink priority card background dark */
+body.dark-theme .priority-card {
+  background: #2d2d2d !important;
+}
+
+/* 2. Changes the priority badge from purple to "semi-red" */
+body.dark-theme .badge.priority {
+  background: #dc3545 !important; /* A solid "semi-red" */
+  color: #ffffff !important;
+}
+/* --- Fix for Priority Queue Header Bar --- */
+body.dark-theme .card-header-priority {
+  background: #2d2d2d !important;
+  color: #e0e0e0 !important;
+}
+/* --- Fix for Modals in Dark Mode --- */
+body.dark-theme .modal-content {
+  background: #2d2d2d !important;
+  border-color: #444 !important;
+}
+
+body.dark-theme .modal-header {
+  border-bottom-color: #444 !important;
+}
+
+body.dark-theme .modal-header h3 {
+  color: #e0e0e0 !important;
+}
+
+body.dark-theme .modal-close {
+  color: #aaa !important;
+}
+body.dark-theme .modal-close:hover {
+  color: #fff !important;
+}
+
+body.dark-theme .modal-body {
+  color: #e0e0e0 !important;
+}
+
+body.dark-theme .modal-footer {
+  border-top-color: #444 !important;
+}
+
+/* Fix for modal content (e.g., Service Request Details) */
+body.dark-theme .request-details .info-row {
+  border-bottom-color: #444 !important;
+}
+
+body.dark-theme .request-details .info-label {
+  color: #aaa !important;
+}
+
+body.dark-theme .request-details .info-value {
+  color: #e0e0e0 !important;
+}
+
+/* Fix for preview boxes in other modals (Approve/Decline) */
+body.dark-theme .request-details-preview {
+  background: #3a3a3a !important;
+  border-color: #555 !important;
+  color: #e0e0e0 !important;
+}
+/* --- Fix for Reports Page Hover Effect --- */
+body.dark-theme .history-item:hover {
+  background: #3a3a3a !important; /* A slightly lighter dark color */
+}
+/* --- Fix for Search Button Color --- */
+body.dark-theme #serviceRequestSearchBtn {
+  background: #22c55e !important; /* Match active menu green */
+  box-shadow: none !important; /* Make it flat */
+  border: none !important;
+}
+/* --- Fix for Light & Dark Mode Toggle Switch (Corrected) --- */
+
+/* 1. Light Mode 'ON' State (green) */
+.form-check-input:checked {
+  background-color: #22c55e !important;
+  border-color: #22c55e !important; /* <-- This is the fix */
+}
+
+/* 2. Light & Dark Mode 'FOCUS' Glow (green) */
+.form-check-input:focus {
+  border-color: #22c55e !important;
+  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.3) !important;
+}
+
+/* 3. Dark Mode 'OFF' State (dark track, white thumb) */
+body.dark-theme .form-check-input {
+  background-color: #4a4a4a !important;
+  border-color: #555 !important;
+  /* This SVG sets the thumb to white for the OFF state */
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e") !important;
+}
+
+/* 4. Dark Mode 'ON' State (green track, default white thumb) */
+body.dark-theme .form-check-input:checked {
+  background-color: #22c55e !important;
+  border-color: #22c55e !important;
+  /* This prevents the "double circle" bug */
+  background-image: none !important;
+}
+.request-details .info-row {
+  display: flex;
+  margin-bottom: 8px;
+  font-size: 1rem;
+}
+.request-details .info-label {
+  font-weight: 600;
+  color: #555;
+  width: 140px;
+  flex-shrink: 0;
+}
+.request-details .info-value {
+  color: #222;
+  word-break: break-word;
+}
+.request-details h4 {
+  color: #0056b3; /* Primary color */
+  border-bottom: 2px solid #f0f0f0;
+  padding-bottom: 5px;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  font-size: 1.25rem;
+}
+.request-details h5 {
+  font-weight: 600;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+.services-list-modal,
+.requirements-list-modal {
+  list-style-type: none;
+  padding-left: 0;
+}
+.services-list-modal li {
+  background: #f4f4f4;
+  padding: 8px 12px;
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+.requirements-list-modal li {
+  padding: 5px 0;
+}
+.requirements-list-modal a {
+  text-decoration: none;
+  font-weight: 500;
+  color: #0d6efd;
+}
+.requirements-list-modal a:hover {
+  text-decoration: underline;
+}
+.requirements-list-modal i {
+  margin-right: 8px;
+  color: #6c757d;
+}
+.request-details .info-row {
+  display: flex;
+  margin-bottom: 8px;
+  font-size: 1rem;
+}
+.request-details .info-label {
+  font-weight: 600;
+  color: #555;
+  width: 140px;
+  flex-shrink: 0;
+}
+.request-details .info-value {
+  color: #222;
+  word-break: break-word;
+}
+.request-details h4 {
+  color: #0056b3; /* Primary color */
+  border-bottom: 2px solid #f0f0f0;
+  padding-bottom: 5px;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  font-size: 1.25rem;
+}
+.request-details h5 {
+  font-weight: 600;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+.services-list-modal,
+.requirements-list-modal {
+  list-style-type: none;
+  padding-left: 0;
+}
+.services-list-modal li {
+  background: #f4f4f4;
+  padding: 8px 12px;
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+.requirements-list-modal li {
+  padding: 5px 0;
+}
+.requirements-list-modal a {
+  text-decoration: none;
+  font-weight: 500;
+  color: #0d6efd;
+}
+.requirements-list-modal a:hover {
+  text-decoration: underline;
+}
+.requirements-list-modal i {
+  margin-right: 8px;
+  color: #6c757d;
+}
+.school-id-preview {
+  width: 150px;
+  height: auto;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+.school-id-preview:hover {
+  transform: scale(1.05);
+}
+/* --- Animated Day/Night Toggle Switch --- */
+.theme-switch-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.theme-switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 30px;
+}
+
+.theme-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The Track */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #87ceeb; /* Sky Blue (Day) */
+  transition: 0.4s;
+  border-radius: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5px;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+/* The Thumb (Circle) */
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 24px;
+  width: 24px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+  z-index: 2;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Icons inside the track */
+.icon-sun,
+.icon-moon {
+  color: white;
+  font-size: 14px;
+  z-index: 1;
+  transition: 0.4s;
+}
+
+.icon-sun {
+  margin-left: 5px;
+  color: #ffeb3b; /* Yellow Sun */
+}
+
+.icon-moon {
+  margin-right: 5px;
+  color: #f1c40f; /* Yellow Moon */
+  opacity: 0.5; /* Dimmed when in light mode */
+}
+
+/* --- Dark Mode State (Checked) --- */
+input:checked + .slider {
+  background-color: #2c3e50; /* Midnight Blue (Night) */
+}
+
+input:checked + .slider:before {
+  transform: translateX(30px); /* Move the circle */
+}
+
+input:checked + .slider .icon-sun {
+  opacity: 0.5; /* Dim Sun */
+}
+
+input:checked + .slider .icon-moon {
+  opacity: 1; /* Bright Moon */
+}
+
+/* Add a nice focus glow for accessibility */
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196f3;
+}
+/* Wrapper for the whole section */
+.new-requests-wrapper {
+  margin-top: 30px;
+  width: 100%;
+}
+
+.section-title {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+/* The Grey Background Container */
+.requests-container-bg {
+  background-color: #e0e0e0; /* Light grey from Figma */
+  border-radius: 12px;
+  padding: 20px;
+  /* This creates the constraint for the scrollbar */
+  /* Assuming a card is approx 80px height. 200px allows 2 visible, then scrolls. */
+  height: auto;
+}
+
+/* The Scrollable Area */
+.requests-scroll-area {
+  max-height: 180px; /* ADJUST THIS: This height fits exactly 2 items. 3rd triggers scroll. */
+  overflow-y: auto; /* Activates scrollbar only when needed */
+  padding-right: 10px; /* Space for scrollbar */
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Space between cards */
+}
+
+/* Custom Scrollbar Styling (Optional - makes it look cleaner) */
+.requests-scroll-area::-webkit-scrollbar {
+  width: 8px;
+}
+.requests-scroll-area::-webkit-scrollbar-track {
+  background: #ccc;
+  border-radius: 4px;
+}
+.requests-scroll-area::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+/* The White Request Card */
+.request-card {
+  background-color: white;
+  border-radius: 8px;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between; /* Separates Name from Buttons */
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  flex-shrink: 0; /* Prevents card from squishing */
+}
+
+/* Left side: Name and View Details */
+.card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  border-right: 1px solid #ddd; /* Vertical divider */
+  padding-right: 20px;
+  min-width: 150px;
+}
+
+.student-name {
+  font-weight: bold;
+  color: #333;
+}
+
+.btn-view-details {
+  background-color: #d9d9d9;
+  border: none;
+  border-radius: 15px;
+  padding: 5px 10px;
+  font-size: 12px;
+  cursor: pointer;
+  width: fit-content;
+}
+
+/* Right side: Window Buttons */
+.card-actions {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.btn-window {
+  background-color: #d9d9d9;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 20px;
+  font-weight: 600;
+  color: #333;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-window:hover {
+  background-color: #c0c0c0;
+}
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* --- CLEANER NOW SERVING CARD --- */
+.now-serving-card {
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  border: none;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+}
+
+.now-serving-header {
+  background: transparent;
+  padding: 20px 25px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.serving-status-badge {
+  background: #e8f5e9;
+  color: #2e7d32;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.serving-body {
+  padding: 15px 25px 25px;
+}
+
+.serving-client-name {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #2d3436;
+  margin-bottom: 5px;
+}
+
+.serving-meta {
+  display: flex;
+  gap: 20px;
+  color: #636e72;
+  font-size: 0.95rem;
+  margin-bottom: 15px;
+}
+
+.serving-meta i {
+  color: #0984e3;
+  margin-right: 5px;
+}
+
+/* --- CLEANER "ALL REQUESTS" LIST --- */
+.active-requests-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.active-request-row {
+  display: grid;
+  grid-template-columns: 60px 2fr 1fr auto; /* Queue# | Name/Service | Window | Time */
+  align-items: center;
+  background: white;
+  padding: 12px 20px;
+  border-radius: 10px;
+  border: 1px solid #f0f0f0;
+  transition: all 0.2s ease;
+}
+
+.active-request-row:hover {
+  transform: translateX(5px);
+  border-color: #e0e0e0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+/* Window Indicator Line */
+.active-request-row.win-1 {
+  border-left: 4px solid #0d6efd;
+}
+.active-request-row.win-2 {
+  border-left: 4px solid #ffc107;
+}
+.active-request-row.win-3 {
+  border-left: 4px solid #0dcaf0;
+}
+.active-request-row.win-4 {
+  border-left: 4px solid #dc3545;
+}
+
+.req-queue-num {
+  font-weight: 700;
+  color: #2d3436;
+  font-size: 1.1rem;
+}
+
+.req-info h6 {
+  margin: 0;
+  font-weight: 600;
+  color: #2d3436;
+  font-size: 0.95rem;
+}
+
+.req-info p {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #b2bec3;
+}
+
+.req-window-badge {
+  font-size: 0.75rem;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-weight: 600;
+  text-align: center;
+  width: fit-content;
+}
+
+.req-time {
+  font-size: 0.85rem;
+  color: #636e72;
+  font-weight: 500;
+  text-align: right;
+}
+.sidebar .user-card .user-info {
+  display: flex;
+  flex-direction: column; /* Stack name and role vertically */
+  justify-content: center; /* Center the block vertically against the avatar */
+  align-items: flex-start; /* Align text to the left */
+  line-height: 1.2; /* Tighter line spacing */
+}
+
+/* Fix the Name */
+.sidebar .user-card .user-info h4 {
+  margin: 0; /* Remove default gap */
+  font-size: 15px;
+  font-weight: 700;
+  color: #2d3436;
+  margin-bottom: 2px; /* Tiny space between name and role */
+}
+
+/* Fix the Role (Staff text) */
+.sidebar .user-card .user-info p {
+  margin: 0; /* Remove default gap */
+  font-size: 13px;
+  color: #636e72;
+  font-weight: 500;
+}
+.settings-section .staff-avatar {
+  width: 60px;
+  height: 60px;
+  min-width: 60px; /* Prevent squishing */
+  border-radius: 50%;
+  background-color: #e0e0e0; /* Light grey background */
+  color: #555;
+  font-weight: 700;
+  font-size: 20px;
+
+  /* Flexbox Centering */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-right: 15px; /* Space between avatar and text */
+}
