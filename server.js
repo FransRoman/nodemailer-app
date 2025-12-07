@@ -16,13 +16,18 @@ app.post('/send-email', async (req, res) => {
     const { name, email, message } = req.body;
 
     // 1. Create Transporter (Authentication)
-    const transporter = nodemailer.createTransport({
-        service: 'gmail', // Use your provider (Outlook, Yahoo, etc.)
-        auth: {
-            user: process.env.EMAIL_USER, // We will set these in Render later
-            pass: process.env.EMAIL_PASS
-        }
-    });
+   const transporter = nodemailer.createTransport({
+    host: 'smtp.gmail.com',  // Explicitly set the host
+    port: 587,               // Use port 587 (Standard for TLS)
+    secure: false,           // false for port 587
+    auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS
+    },
+    tls: {
+        rejectUnauthorized: false // Helps avoid some certificate errors on cloud servers
+    }
+});
 
     // 2. Configure Email
     const mailOptions = {
