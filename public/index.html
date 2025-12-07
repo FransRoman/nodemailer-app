@@ -3,59 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Email Tester</title>
+    <title>Contact Form</title>
     <style>
-        body { font-family: sans-serif; display: flex; height: 100vh; justify-content: center; align-items: center; background-color: #f0f2f5; }
-        .card { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); text-align: center; width: 320px; }
-        input { width: 90%; padding: 12px; margin: 15px 0; border: 1px solid #ddd; border-radius: 6px; }
-        button { background-color: #007bff; color: white; border: none; padding: 12px 24px; border-radius: 6px; cursor: pointer; width: 100%; font-size: 16px; }
-        button:hover { background-color: #0056b3; }
-        button:disabled { background-color: #ccc; }
-        #status { margin-top: 15px; font-weight: bold; }
+        body { font-family: sans-serif; display: flex; justify-content: center; padding: 50px; }
+        form { display: flex; flex-direction: column; width: 300px; gap: 10px; }
+        input, textarea, button { padding: 10px; }
     </style>
 </head>
 <body>
-    <div class="card">
-        <h2>Email Tester</h2>
-        <p>Enter an email to verify the system.</p>
-        <input type="email" id="emailInput" placeholder="recipient@example.com">
-        <button onclick="send()" id="btn">Send Test Email</button>
-        <p id="status"></p>
-    </div>
+    <form id="contactForm">
+        <h2>Contact Us</h2>
+        <input type="text" id="name" placeholder="Your Name" required>
+        <input type="email" id="email" placeholder="Your Email" required>
+        <textarea id="message" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Email</button>
+    </form>
 
     <script>
-        async function send() {
-            const email = document.getElementById('emailInput').value;
-            const status = document.getElementById('status');
-            const btn = document.getElementById('btn');
+        const form = document.getElementById('contactForm');
 
-            if (!email) { status.innerText = "Please enter an email."; return; }
-
-            status.innerText = "Sending...";
-            status.style.color = "blue";
-            btn.disabled = true; // Disable button to prevent double clicks
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                message: document.getElementById('message').value
+            };
 
             try {
-                const res = await fetch('/send-email', {
+                // We point to our own server route
+                const response = await fetch('/send-email', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ recipientEmail: email })
+                    body: JSON.stringify(formData)
                 });
+                
+                const result = await response.json();
+                alert(result.message);
+                
+                if(response.ok) form.reset();
 
-                if (res.ok) {
-                    status.innerText = "✅ Email Sent Successfully!";
-                    status.style.color = "green";
-                } else {
-                    const data = await res.json();
-                    status.innerText = "❌ Error: " + (data.error || "Failed");
-                    status.style.color = "red";
-                }
-            } catch (err) {
-                status.innerText = "❌ Network Error";
-                status.style.color = "red";
+            } catch (error) {
+                alert('Error sending email');
             }
-            btn.disabled = false;
-        }
+        });
     </script>
 </body>
 </html>

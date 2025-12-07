@@ -1,53 +1,48 @@
-require('dotenv').config();
 const express = require('express');
 const nodemailer = require('nodemailer');
 const cors = require('cors');
-const path = require('path');
+require('dotenv').config();
 
 const app = express();
-app.use(express.json());
+const PORT = process.env.PORT || 3000;
+
+// Middleware
 app.use(cors());
-app.use(express.static('public')); // Serve the HTML file
+app.use(express.json());
+app.use(express.static('public')); // This serves your HTML file automatically
 
-// THE CRITICAL EMAIL CONFIGURATION
-const transporter = nodemailer.createTransport({
-    host: 'smtp.gmail.com',
-    port: 587,              // Use this port for better reliability on cloud servers
-    secure: false,          // "false" waits for STARTTLS (standard for port 587)
-    auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS
-    },
-    tls: {
-        rejectUnauthorized: false // Helps avoid some strict SSL errors during development
-    },
-    family: 4 // Force IPv4 (Crucial for fixing timeout errors on some networks)
-});
-
-// The Route
+// Email Route
 app.post('/send-email', async (req, res) => {
-    const { recipientEmail } = req.body;
-    console.log(`Attempting to send to: ${recipientEmail}`);
+    const { name, email, message } = req.body;
 
+    // 1. Create Transporter (Authentication)
+    const transporter = nodemailer.createTransport({
+        service: 'gmail', // Use your provider (Outlook, Yahoo, etc.)
+        auth: {
+            user: process.env.EMAIL_USER, // We will set these in Render later
+            pass: process.env.EMAIL_PASS
+        }
+    });
+
+    // 2. Configure Email
     const mailOptions = {
-        from: `"Node App" <${process.env.EMAIL_USER}>`, // Shows as "Node App" in inbox
-        to: recipientEmail,
-        subject: "It Works! 🚀",
-        text: "Congratulations! If you are reading this, your Node.js app is successfully sending emails from the cloud."
+        from: email,
+        to: process.env.EMAIL_USER, // Sending to yourself
+        subject: `New Message from ${name}`,
+        text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
     };
 
+    // 3. Send
     try {
-        const info = await transporter.sendMail(mailOptions);
-        console.log('Email sent: ' + info.response);
-        res.status(200).json({ message: 'Success' });
+        await transporter.sendMail(mailOptions);
+        res.status(200).json({ status: 'success', message: 'Email sent successfully!' });
     } catch (error) {
-        console.error('Error sending email:', error);
-        res.status(500).json({ message: 'Failed', error: error.message });
+        console.error(error);
+        res.status(500).json({ status: 'error', message: 'Failed to send email.' });
     }
 });
 
 // Start Server
-const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
