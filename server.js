@@ -15,18 +15,16 @@ app.use(express.static('public'));
 app.post('/send-email', async (req, res) => {
     const { targetEmail } = req.body; // We only need the target email now
 
-    const transporter = nodemailer.createTransport({
-    host: 'smtp.gmail.com',  // Explicitly set the host
-    port: 587,               // Use port 587 (Standard for TLS)
-    secure: false,           // false for port 587
-    auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS
-    },
-    tls: {
-        rejectUnauthorized: false // Helps avoid some certificate errors on cloud servers
-    }
-});
+   const transporter = nodemailer.createTransport({
+        service: 'gmail',
+        host: 'smtp.gmail.com',
+        port: 465,               // <--- TRY THIS PORT INSTEAD
+        secure: true,            // <--- MUST BE TRUE FOR PORT 465
+        auth: {
+            user: process.env.EMAIL_USER,
+            pass: process.env.EMAIL_PASS
+        }
+    });
 
     const mailOptions = {
         from: process.env.EMAIL_USER,     // Sent FROM your app
