@@ -16,17 +16,17 @@ app.post('/send-email', async (req, res) => {
     const { targetEmail } = req.body; // We only need the target email now
 
     const transporter = nodemailer.createTransport({
-        host: 'smtp.gmail.com',  // USE THIS TO FIX TIMEOUT
-        port: 587,               // USE PORT 587
-        secure: false,           // FALSE FOR PORT 587
-        auth: {
-            user: process.env.EMAIL_USER,
-            pass: process.env.EMAIL_PASS
-        },
-        tls: {
-            rejectUnauthorized: false
-        }
-    });
+    host: 'smtp.gmail.com',  // Explicitly set the host
+    port: 587,               // Use port 587 (Standard for TLS)
+    secure: false,           // false for port 587
+    auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS
+    },
+    tls: {
+        rejectUnauthorized: false // Helps avoid some certificate errors on cloud servers
+    }
+});
 
     const mailOptions = {
         from: process.env.EMAIL_USER,     // Sent FROM your app
