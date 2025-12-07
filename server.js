@@ -14,9 +14,10 @@ app.post('/send-email', async (req, res) => {
     const { recipientEmail } = req.body;
 
     const transporter = nodemailer.createTransport({
-        host: 'smtp.gmail.com', // Explicitly tell it to use Gmail
-        port: 465,              // Explicitly use the Secure SSL port
-        secure: true,           // This forces SSL
+        service: 'gmail',
+        host: 'smtp.gmail.com',
+        port: 587,
+        secure: false, // Must be false for port 587
         auth: {
             user: process.env.EMAIL_USER,
             pass: process.env.EMAIL_PASS
