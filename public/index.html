@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Sender</title>
+    <style>
+        body { font-family: sans-serif; display: flex; height: 100vh; justify-content: center; align-items: center; background: #f4f4f4; }
+        .card { background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); text-align: center; }
+        input { padding: 10px; margin-top: 10px; width: 80%; border: 1px solid #ddd; border-radius: 5px; }
+        button { margin-top: 15px; padding: 10px 20px; background: #28a745; color: white; border: none; border-radius: 5px; cursor: pointer; }
+        button:hover { background: #218838; }
+        #message { margin-top: 15px; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>Send a Message</h2>
+        <input type="email" id="emailInput" placeholder="Enter recipient email" required>
+        <br>
+        <button onclick="sendEmail()">Send Now</button>
+        <p id="message"></p>
+    </div>
+
+    <script>
+        async function sendEmail() {
+            const email = document.getElementById('emailInput').value;
+            const messageLabel = document.getElementById('message');
+            
+            if(!email) { messageLabel.innerText = "Please enter an email"; return; }
+            
+            messageLabel.innerText = "Sending...";
+            messageLabel.style.color = "black";
+
+            try {
+                const response = await fetch('/send-email', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ recipientEmail: email })
+                });
+
+                const result = await response.json();
+                
+                if (response.ok) {
+                    messageLabel.innerText = "Success! Email sent.";
+                    messageLabel.style.color = "green";
+                } else {
+                    messageLabel.innerText = "Error: " + result.message;
+                    messageLabel.style.color = "red";
+                }
+            } catch (error) {
+                messageLabel.innerText = "Network Error.";
+                messageLabel.style.color = "red";
+            }
+        }
+    </script>
+</body>
+</html>
